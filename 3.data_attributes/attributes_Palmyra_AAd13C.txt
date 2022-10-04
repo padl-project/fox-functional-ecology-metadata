@@ -1,0 +1,33 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+SampleID		character				
+RunID		numeric	!Add units here!			
+Ala13C		numeric	!Add units here!			
+Ala13C.SD		numeric	!Add units here!			
+Gly13C		numeric	!Add units here!			
+Gly13C.SD		numeric	!Add units here!			
+Thr13C		numeric	!Add units here!			
+Thr13C.SD		numeric	!Add units here!			
+Ser13C		numeric	!Add units here!			
+Ser13C.SD		numeric	!Add units here!			
+Val13C		numeric	!Add units here!			
+Val13C.SD		numeric	!Add units here!			
+Leu13C		numeric	!Add units here!			
+Leu13C.SD		numeric	!Add units here!			
+Ile13C		numeric	!Add units here!			
+Ile13C.SD		numeric	!Add units here!			
+Pro13C		numeric	!Add units here!			
+Pro13C.SD		numeric	!Add units here!			
+Asp13C		numeric	!Add units here!			
+Asp13C.SD		numeric	!Add units here!			
+Glu13C		numeric	!Add units here!			
+Glu13C.SD		numeric	!Add units here!			
+Phe13C		numeric	!Add units here!			
+Phe13C.SD		numeric	!Add units here!			
+Tyr13C		numeric	!Add units here!			
+Tyr13C.SD		numeric	!Add units here!			
+Lys13C		numeric	!Add units here!			
+Lys13C.SD		numeric	!Add units here!			
+InjCom		character				
+Site		categorical				
+group		categorical				
+group2		categorical				

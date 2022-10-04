@@ -1,0 +1,12 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Site		character				
+Rep		numeric	!Add units here!			
+Dd13C		numeric	!Add units here!			
+LD1		numeric	!Add units here!			
+Heterotrophy		numeric	!Add units here!			
+E_Ile13C		numeric	!Add units here!			
+E_Leu13C		numeric	!Add units here!			
+E_Lys13C		numeric	!Add units here!			
+E_Phe13C		numeric	!Add units here!			
+E_Thr13C		numeric	!Add units here!			
+E_Val13C		numeric	!Add units here!			

@@ -1,0 +1,15 @@
+attributeName	code	definition
+group	Animal	
+group	Plankton	
+group	POM	
+group	Zoox	
+group2	Animal	
+group2	Source	
+group2	Zoox	
+Site	FR13	
+Site	FR239	
+Site	FR3	
+Site	FR4	
+Site	FR7	
+Site	FR9	
+Site	LAG	

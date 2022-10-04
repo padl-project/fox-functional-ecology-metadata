@@ -1,0 +1,12 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Site		categorical				
+Site.specific		character				
+Coast		categorical				
+Zone		categorical				
+replicate		numeric	!Add units here!			
+Species		categorical				
+Tissue		categorical				
+15N		numeric	!Add units here!			
+13C		numeric	!Add units here!			
+Dd13C		numeric	!Add units here!			
+Dd15N		numeric	!Add units here!			

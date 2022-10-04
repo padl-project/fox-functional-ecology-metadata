@@ -1,0 +1,5 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Tissue		character				
+mean		numeric	!Add units here!			
+lower CI		numeric	!Add units here!			
+upper CI		numeric	!Add units here!			

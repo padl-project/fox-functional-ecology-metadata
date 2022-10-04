@@ -1,16 +1,27 @@
 ---
-title: "ADD TITLE"
-author: "ADD AUTHOR"
+title: "Metadata for Data from Functional Ecology Paper "
+author: "Mike Fox"
 date: "`r Sys.Date()`"
 format: docx
 editor: visual
+execute: 
+  echo: false
+  warning: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r }
+#| label: setup
 
-librarian::shelf("EMLassemblyline", "flextable", "glue", "here", "tidyverse")
-dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project/"
+librarian::shelf("EMLassemblyline", 
+                 "flextable",
+                 "glue",
+                 "here",
+                 "tidyverse")
+
+dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project"
+dir_data <- "/Data/Mike Fox/fox-functional-ecology-DRYAD/data"
+dir_package <- "/Data/Mike Fox/fox-functional-ecology-DRYAD"
+
 
 ```
 
@@ -20,17 +31,25 @@ The information in this document will be used to create the EML of the data pack
 
 ## 1. Data Package Title
 
+Metadata from: Trophic plasticity in a common reef-building coral: Insights from δ13C analysis of essential amino acids
+
 ## 2. Dataset Title
 
-*Include what, where, and when in the dataset title*
+*Include **what, where, and when** in the dataset title*
 
--   
 
--   
+
+| Data set Title                              | Description                                                                                                                                                                 | File type | File name                         |
+|-----------|---------------------------------------|-----------|-----------|
+| Bulk d13C and d15N data                     | This file contains all bulk tissue d13C and d15N values to create the biplot in figure 2b                                                                                   | csv       | Bulk_13C_15N_Palmyra.csv          |
+| LDA and Dd13C values for correlation        | This file contains the data required to reproduce figure 4C                                                                                                                 | csv       | LDA_Dd13C_corr_sites.csv          |
+| Confidence interval estimates               | This file contains the data required to reproduce figure 2C                                                                                                                 | csv       | mean_CI_boostrap_for_plotting.csv |
+| Raw Amino Acid d13C data from Palmyra Atoll | This file contains all amino acid d13C measurements made on P. meandrina host and endosymbiont tissue and heterotrophic resources (POM and zooplankton) from Palmyra Atoll. | csv       | Palmyra_AAd13C.csv                |
+| R code for analyses                         | This script will open all data files and reproduce the analyses and main text figures for the manuscript.                                                                   | R Script  | Fox et al. FE_code.R              |
 
 ## 3. Abstract
 
-*Please provide an abstract specifically of the dataset. This is different from the abstract of an associated publication. Include what, why, where, when, and how*
+*Please provide an abstract **specifically of the dataset**. This is different from the abstract of an associated publication. Include what, why, where, when, and how*
 
 [See example here](https://docs.google.com/document/d/1KdHJObHl5Bxxr9t0LISTwX0cCSVvx7NPUjz5T_P9JEc/edit#)
 
@@ -40,37 +59,12 @@ The information in this document will be used to create the EML of the data pack
 
 **We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
-| **First Name** | **Middle Initial** | **Last Name** | **Organization** | **Email** | **ORCID ID** |
+| **First Name** | **Middle Initial** | **Last Name** | **Organization**                     | **Email**      | **ORCID ID**                          |
 |------------|------------|------------|------------|------------|------------|
-|                |                    |               |                  |           |              |
-|                |                    |               |                  |           |              |
-|                |                    |               |                  |           |              |
-
-```{r, creator_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE, results='asis'}
-
-first_name <- c("", "")
-middle_in <- c("", "")
-last_name <- c(" ", " ")
-organization <- c("", "")
-email <- c("", "")
-orcid <- c("", "")
-
-creator_colname <- c("First Name", "Middle Initial", "Last Name", "Organization", "email address", "ORCID ID")
-
-creator_table <- tibble(first_name, middle_in, last_name, organization, email, orcid)
-
-colnames(creator_table) <- creator_colname
-
-
-set_flextable_defaults(big.mark = " ", 
-  font.size = 10, 
-  theme_fun = theme_box)
-
-
-flextable::flextable(creator_table) %>% 
-  width(width = 1)
-  #autofit(add_w = 0.1, add_h = 0.1, part = c("body", "header"), unit = "in")
-```
+| Michael        | D                  | Fox           | Woods Hole Oceanographic Institution | mfox\@whoi.edu | https://orcid.org/0000-0002-5004-1025 |
+| Emma           |                    | Elliott Smith | University of New Mexico             |                | https://orcid.org/0000-0002-3221-0737 |
+| Jennifer       |                    | Smith         | Scripps Institution of Oceanography  |                |                                       |
+| Seth           |                    | Newsome       | University of New Mexico             |                | https://orcid.org/0000-0002-4534-1242 |
 
 ## 5. Other personnel names and roles
 
@@ -78,38 +72,17 @@ flextable::flextable(creator_table) %>%
 
 **We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
-```{r, personnel_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
-
-p_first_name <- c("", "Camila")
-p_middle_in <- c("", "")
-p_last_name <- c(" ", "Vargas Poulsen")
-p_organization <- c(" ", "PADL Data Manager, University of California Santa Barbara")
-p_email <- c("", "camilavargas@ucsb.edu")
-p_orcid <- c("", "")
-p_role <- c("contact", "associated party")
-
-personnel_colnames <- c("First Name", "Middle Initial", "Last Name", "Organization", "email address", "ORCID ID", "Role in project")
-
-personnel_table <- tibble(p_first_name, p_middle_in, p_last_name, p_organization, p_email, p_orcid, p_role)
-
-colnames(personnel_table) <- personnel_colnames
-
-
-flextable::flextable(personnel_table) %>% 
-  width(width = 1)
-```
-
-| First Name | Last Name      | Organization                                              | Email                  | ORCID ID | Role in Project  |
+| First Name | Last Name      | Organization                                              | Email                  | ORCID ID                              | Role in Project  |
 |------------|------------|------------|------------|------------|------------|
-|            |                |                                                           |                        |          | Contact          |
-| Camila     | Vargas Poulsen | PADL Data Manager, University of California Santa Barbara | camilavargas\@ucsb.edu |          | associated party |
-|            |                |                                                           |                        |          |                  |
+| Michael    | Fox            | Woods Hole Oceanographic Institution                      | mfox\@whoi.edu         | https://orcid.org/0000-0002-5004-1025 | Contact          |
+|            |                |                                                           |                        |                                       |                  |
+| Camila     | Vargas Poulsen | PADL Data Manager, University of California Santa Barbara | camilavargas\@ucsb.edu |                                       | associated party |
 
 ## 6. License
 
 ***Please highlight** the license for the release of your data. Click on the license name for more information.*
 
-[CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+[CCO](https://creativecommons.org/publicdomain/zero/1.0/) - RECOMMENDED
 
 Public Domain Dedication, aka "No Rights Reserved." This one means, "If I hold copyright in this, I waive it."
 
@@ -119,24 +92,18 @@ or
 
 [CC BY](https://creativecommons.org/licenses/by/4.0/)
 
-Attribution is required. CC licenses require that those who reuse a work provide attribution to the work's creator by retaining "identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated)."
-
-**Message for user:** Data user is required to cite it appropriately in any publication that results from its use.
+Data user is required to cite it appropriately in any publication that results from its use.
 
 ## 7. Keywords
 
 *Using keywords from a controlled vocabulary (CV) will improve your data's future discovery and reuse. The LTER CV is a good source for keywords. Access the [LTER CV here](https://vocab.lternet.edu/vocab/vocab/index.php). Also, please determine one or two keywords that best describe your lab, station, and/or project (e.g., Trout Lake Station, NTL LTER).). Add as many rows to this table as needed*
 
-```{r, keywords_table, echo = FALSE, message= FALSE, warning= FALSE, message= FALSE, warning= FALSE }
-
-key_words <- c("Palmyra Atoll", "")
-
-keyword_table <- tibble(key_words)
-
-flextable::flextable(keyword_table) %>% 
-  width(width = 1)
-  
-```
+| Keywords      |
+|---------------|
+| Palmyra Atoll |
+|               |
+|               |
+|               |
 
 ## 8. Funding of this work
 
@@ -148,49 +115,11 @@ flextable::flextable(keyword_table) %>%
 |               |              |          |             |                |                |                   |
 |               |              |          |             |                |                |                   |
 
-```{r, funding_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE, message= FALSE, warning= FALSE}
-
-pi_first_name <- " "
-pi_middle_in <- " "
-pi_last_name <- " "
-pi_email <- " "
-pi_orcid <- " "
-title_grant <- " "
-fund_agency <- " "
-fund_id <- " "
-
-fund_colnames <- c("PI First Name", "PI Middle Initial", "PI Last Name", "PI email", "PI ORCID ID", "Title of Grant", "Funding Agency", "Funding Identification Number")
-
-
-funding_table <- tibble(pi_first_name, pi_middle_in, pi_last_name, pi_email, pi_orcid, title_grant, fund_agency, fund_id)
-
-colnames(funding_table) <- fund_colnames
-
-flextable::flextable(funding_table) %>% 
-  width(width = 1)
-
-```
-
 ## 9. Timeframe
 
 | Begin Date | End Date | Is data collection ongoing or completed? |
 |------------|----------|------------------------------------------|
-|            |          |                                          |
-|            |          |                                          |
-|            |          |                                          |
-
-```{r, timeframe_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
-
-Information <- c("Begin date", "End date", "Is data collection ongoing or completed?")
-
-Description <- c(" ", "", "Completed")
-
-timeframe_table <- tibble(Information, Description)
-
-flextable::flextable(timeframe_table) %>% 
-  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
-
-```
+| 2015-09    | 2015-09  | Yes                                      |
 
 ## 10. Geographic location
 
@@ -198,7 +127,9 @@ flextable::flextable(timeframe_table) %>%
 
 **Verbal description:** Palmyra Atoll National Wildlife Refuge
 
-```{r, geographic_location_table, echo = FALSE, message= FALSE, warning= FALSE}
+```{r}
+
+#| label: geographic_location_table
 
 Directions <- c("Northbound", "Southbound", "Eastbound", "Westbound")
 
@@ -215,7 +146,8 @@ flextable(geo_loc_table) %>%
 
 **Verbal description:**
 
-```{r, geographic_location_table_2, echo = FALSE, message= FALSE, warning= FALSE}
+```{r}
+#| label: geographic_location_table_2
 
 coordinate <- c(" ", " ", " ", " ")
 
@@ -236,29 +168,9 @@ Find an example [in this link](https://docs.google.com/document/d/1KdHJObHl5Bxxr
 
 *Is this data derived from other data? If so, you will want to document this information, so users know where this data came from. Please specify the source datasets used in the below provenance table, preferably with their DOI or URL. [Here is an example of a dataset derived from several others](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.101.3).*
 
-| Dataset Title | Dataset DOI or URL | Creator Name | Contact Email |
-|---------------|--------------------|--------------|---------------|
-|               |                    |              |               |
-|               |                    |              |               |
-|               |                    |              |               |
-
-```{r, data_provenance, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
-
-data_title <- c(" ", " ")
-data_doi_url <- c("", "")
-creator_name <- c("", "")
-contact_email <- c("", "")
-
-provenance_colnames <- c("Dataset title", "Dataset DOI or URL", "Creator Name", "Contact Email")
-
-
-provenance_table <- tibble(data_title, data_doi_url, creator_name, contact_email)
-
-colnames(provenance_table) <- provenance_colnames
-
-flextable::flextable(provenance_table) %>% 
-  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
-```
+| Dataset Title                                                                                                       | Dataset DOI or URL                      | Creator Name | Contact Email  |
+|---------------------------|---------------|---------------|---------------|
+| Data from: Trophic plasticity in a common reef-building coral: Insights from δ13C analysis of essential amino acids | <https://doi.org/10.5061/dryad.tv8v6k3> | Fox, Michael | mfox\@whoi.edu |
 
 ## 13. Data Table
 
@@ -270,27 +182,30 @@ Each row in the below table describes one column in your data table. Complete ea
 -   **Missing value code:** If a code for 'no data' is used, please specify: e.g., -99999, NA
 -   **Missing value code Explanation:** Why are these values missing? e.g.: value not available, value not recorded.
 
-```{r, table_description, echo = FALSE, message= FALSE, warning= FALSE}
-table_name <- " "
-table_description <- " "
+```{r}
+#| label: data_files
 
-table_table <- tibble(table_name, table_description)
+## Location of datasets in the package
 
-flextable::flextable(table_table) %>% 
-  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
+path_data <- glue("{dir_gdrive}{dir_data}") 
+# Update this with the location of the data in the drive
+path_templates <- here::here("3.data_attributes")
+
+
+## Create table with all the file names
+files_names <- tibble(
+  list.files(path_data, pattern = "csv")) %>%
+  rename(file_name = 1) %>%
+  mutate(file_name = str_remove(file_name, ".csv"),
+         attribute_name = paste0("data_attributes", 1:n()),
+         position = 1:n())
+
 ```
 
 <br>
 
-```{r, create_data_attributes_tables, echo = FALSE, message= FALSE, warning= FALSE}
-
-## Location of datasets in the package
-
-path_data <- glue("{dir_gdrive}/DATA_RAW/dataset_folder/dataset") 
-# Update this with the location of the data in the drive
-path_templates <- here::here("3.data_attributes")
-
-#-----------------------------------------------------------------#
+```{r}
+#| label: create_data_attributes_tables
 
 
 ## If there is just one data file run this code
@@ -312,14 +227,6 @@ path_templates <- here::here("3.data_attributes")
 
 ## If there is more than one data set, run this code
 
-## Create table with all the file names
-# files_names <- tibble(
-#   list.files(path_data, pattern = "csv")) %>% 
-#   rename(file_name = 1) %>% 
-#   mutate(file_name = str_remove(file_name, ".csv"),
-#          attribute_name = paste0("data_attributes", 1:n()),
-#          position = 1:n())
-
 ## Creating the attribute .txt
 
 # for (i in files_names$file_name){
@@ -333,42 +240,79 @@ path_templates <- here::here("3.data_attributes")
 ## reading text into a data frame
 
 ##General function
-# read_attribute <- function(test){
-#   
-#   read.delim2(here::here(paste0("3.data_attributes/attributes_", test, ".txt"))) %>% 
-#   mutate(unit = case_when(unit == "!Add units here!" ~ "*"))
-# }
+read_attribute <- function(test){
+
+  read.delim2(here::here(paste0("3.data_attributes/attributes_", test, ".txt"))) 
+}
 
 ## Loop to read and name each file 
-# for (i in files_names$position){
-#   
-#   assign(files_names$attribute_name[i], read_attribute(files_names$file_name[i]))
-# 
-#   }
+for (i in files_names$position){
+
+  assign(files_names$attribute_name[i], read_attribute(files_names$file_name[i]))
+
+  }
 
 
 ```
 
-```{r, attribute_table_1, echo=FALSE, message= FALSE, warning= FALSE}
+`r files_names$file_name[1]`
+
+```{r}
+#| label: attribute_table_1
+
 # You will need as many attribute tables as you have data attributes 
 
-# flextable::flextable(data_attributes1) %>% 
-#   width(width = 1)
+flextable::flextable(data_attributes1) %>%
+  width(width = 1)
 
 ```
 
-```{r, attribute_table_2, echo=FALSE, message= FALSE, warning= FALSE}
+<br>
 
-# flextable::flextable(data_attributes2) %>% 
-#   width(width = 1)
+`r files_names$file_name[2]`
+
+```{r}
+
+#| label: attribute_table_2
+
+flextable::flextable(data_attributes2) %>%
+  width(width = 1)
 
 ```
+
+<br>
+
+`r files_names$file_name[3]`
+
+```{r}
+#| label: attribute_table_3
+
+flextable::flextable(data_attributes3) %>%
+  width(width = 1)
+
+```
+
+<br>
+
+`r files_names$file_name[4]`
+
+```{r}
+#| label: attribute_table_4
+
+flextable::flextable(data_attributes4) %>%
+  width(width = 1)
+
+```
+
+<br>
 
 ## 14. Attributes code
 
 *If you use codes in your column, please define each code in the following table. **Fill in only if necessary***
 
-```{r, attribute_code, echo = FALSE, message= FALSE, warning= FALSE}
+```{r}
+
+#| label: attribute_code
 
 ## Attributes list of Files 
 attributes_names <- tibble(
@@ -393,14 +337,19 @@ read_catvar <- function(test){
 }
 
 ## Loop to read and name each file 
-for (i in attributes_names$position){
+for (i in attributes_names$position[c(1,4)]){
   
   assign(attributes_names$catvar_name[i], read_catvar(files_names$file_name[i]))
 }
 
 ```
 
-```{r, categorical variables table 1, echo=FALSE, message= FALSE, warning= FALSE}
+<br>
+
+`r files_names$file_name[1]`
+
+```{r}
+#| label: categorical variables table 1
 
 flextable::flextable(catvar1) %>%
   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
@@ -409,123 +358,38 @@ flextable::flextable(catvar1) %>%
 
 <br>
 
-```{r, categorical variables table 2, echo=FALSE, message= FALSE, warning= FALSE}
-flextable::flextable(catvar2) %>%
+`r files_names$file_name[4]`
+
+```{r}
+#| label: categorical variables table 2
+
+flextable::flextable(catvar4) %>%
   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
   
 ```
 
 <br>
 
-```{r, categorical variables table 3, echo=FALSE, message= FALSE, warning= FALSE}
-flextable::flextable(catvar3) %>%
-  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
-  
-```
-
-```{=html}
-<!-- ### Spatial data objects
-
-(List any geospatial data objects you would like to archive. Organize spatial data into .zip directories
-and describe each.)
-Directory name: (A short name for the data)
-Directory description: (A brief description of the data)
-
-Horizontal Coordinate System Name (e.g. WGS_1984_UTM_Zone_12N)
-Horizontal Accuracy Report
-Vertical Accuracy Report
-Cell Size X Direction
-Cell Size Y Direction
-Raster Origin (e.g. Upper Left)
-Number of Rows
-Number of Columns
-Number of Verticals
-Cell Geometry (e.g. pixel) -->
-```
 ## 15. Scripts/code (software)
 
 *List any software scripts/code you would like to archive along with your data. These may include processing scripts you wrote to create, clean, or analyze the data.*
 
-| Filename | Description | Scripting Language |
-|----------|-------------|--------------------|
-|          |             |                    |
-|          |             |                    |
-|          |             |                    |
+| Filename             | Description                                                                                               | Scripting Language |
+|-----------------|---------------------------------------|-----------------|
+| Fox et al. FE_code.R | This script will open all data files and reproduce the analyses and main text figures for the manuscript. | R                  |
+|                      |                                                                                                           |                    |
+|                      |                                                                                                           |                    |
 
-```{r, script_info, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
-
-file_name <- " "
-description <- " "
-language <- " "
-
-
-script_info_colnames <- c("Filename", "Description", "Scripting language")
-
-
-script_info <- tibble(file_name, description, language)
-
-colnames(script_info) <- script_info_colnames
-
-flextable::flextable(script_info) %>%
-  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
-```
-
-## 16. Other objects (misc.)
-
-*List any other objects (e.g., .zip, .pdf, etc.) you would like to archive.*
-
-**Note:** At the moment, we are not including any photographic data.
-
-| Filename | Description | Data Type |
-|----------|-------------|-----------|
-|          |             |           |
-|          |             |           |
-|          |             |           |
-
-```{r, other_objects, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
-
-misc_file_name <- " "
-misc_description <- " "
-misc_data_type <- " "
-
-
-other_obj_colnames <- c("Filename", "Description", "Data type")
-
-other_objects <- tibble(misc_file_name, misc_description, misc_data_type)
-
-colnames(other_objects) <- other_obj_colnames
-
-flextable::flextable(other_objects) %>% 
-  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
-```
-
-## 17. Articles
+## 16. Articles
 
 *List articles citing this dataset. Add as many rows as necessary*
 
-|                                           |               |               |
-|-------------------------------------------|---------------|---------------|
-| **Article DOI or URL (DOI is preferred)** | Article title | Journal title |
-|                                           |               |               |
-|                                           |               |               |
-|                                           |               |               |
-
-```{r, publications, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
-
-doi <- " "
-article_title <- " "
-journal <- " "
-
-
-publications_colnames <- c("Article DOI or URL (DOI is preferred)", "Article title", "Journal title")
-
-publications <- tibble(doi, article_title, journal)
-
-colnames(publications) <- publications_colnames
-
-flextable::flextable(publications) %>% 
-  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
-```
+|                                           |                                                                                                            |                    |
+|------------------|-------------------------------------|------------------|
+| **Article DOI or URL (DOI is preferred)** | Article title                                                                                              | Journal title      |
+| <https://doi.org/10.1111/1365-2435.13441> | Trophic plasticity in a common reef-building coral: Insights from δ^13^C analysis of essential amino acids | Functional Ecology |
+|                                           |                                                                                                            |                    |
+|                                           |                                                                                                            |                    |
 
 ## Notes, Comments, and Questions
 
@@ -534,7 +398,7 @@ flextable::flextable(publications) %>%
 ```{r, include=FALSE}
 
 # Copy the doc file that was created to the correct folder in drive
-# Example below
-# file.copy(from = here("2.metadata_doc/metadata_doc_file.docx"), to = glue("{dir_gdrive}/carlson-chlorurus/"))
+
+# file.copy(from = here("2.metadata_doc/metadata_doc.docx"), to = glue("{dir_gdrive}{dir_package}"))
 
 ```
