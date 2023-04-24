@@ -21,33 +21,28 @@ options(scipen=999)
 dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project"
 ```
 
-## Read in the Data from Google Drive 
+## Read in the Data from Google Drive
 
-- To do this step, you need to have Google Drive installed on your computer so that you can access Google Drive files using Google File Stream .
+-   To do this step, you need to have Google Drive installed on your computer so that you can access Google Drive files using Google File Stream .
 
-- you can use read_csv, readxl, etc to read in files here as if you were doing it from your local machine. 
+-   you can use read_csv, readxl, etc to read in files here as if you were doing it from your local machine.
 
-**Example below **
+**Example below**
 
-`chlorurus_activity <- read_csv(glue(
-"{dir_gdrive}/DATA_RAW/Peter Carlson/Chlorurus_Activity_data.csv")) %>% 
-clean_names()`
+`chlorurus_activity <- read_csv(glue( "{dir_gdrive}/DATA_RAW/Peter Carlson/Chlorurus_Activity_data.csv")) %>%  clean_names()`
 
-- To add multiple files from the drive into a tibble 
+-   To add multiple files from the drive into a tibble
 
-`multiple_files <- tibble(list.files(glue(
-"{dir_gdrive}/Data/Peter Carlson/"), pattern = ".csv"))`
-
-
+`multiple_files <- tibble(list.files(glue( "{dir_gdrive}/Data/Peter Carlson/"), pattern = ".csv"))`
 
 ```{r}
 
 list_all_csv <- tibble(list.files(glue(
-"{dir_gdrive}/Data/Mike Fox/fox-functional-ecology-DRYAD"), pattern = ".csv")) %>% 
+"{dir_gdrive}/Data/Mike Fox/fox-functional-ecology-DRYAD/data"), pattern = ".csv")) %>% 
   rename(file_name = 1)
 
 bulk13c <- read_csv(glue(
-"{dir_gdrive}/Data/Mike Fox/fox-functional-ecology-DRYAD/", list_all_csv$file_name[1]))
+"{dir_gdrive}/Data/Mike Fox/fox-functional-ecology-DRYAD/data/", list_all_csv$file_name[1]))
 
 lda <- read_csv(glue(
 "{dir_gdrive}/Data/Mike Fox/fox-functional-ecology-DRYAD/", list_all_csv$file_name[2]))
@@ -62,9 +57,22 @@ aad <- read_csv(glue(
 ```
 
 
-## Explore the Data 
-All data is clean and published  on Dryad. No need to do anything else with this script.
+## Exploring data
+
+```{r}
+colnames(bulk13c)
+unique(bulk13c$Site)
+
+
+
+```
+
+
+
+## Explore the Data
+
+All data is clean and published on Dryad. No need to do anything else with this script.
 
 ## Save to clean data
-Because we are not modifying anything we will read the data from the same file. No need to save into clean_data folder.
 
+Because we are not modifying anything we will read the data from the same file. No need to save into clean_data folder.

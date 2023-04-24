@@ -37,10 +37,8 @@ Metadata from: Trophic plasticity in a common reef-building coral: Insights from
 
 *Include **what, where, and when** in the dataset title*
 
-
-
 | Data set Title                              | Description                                                                                                                                                                 | File type | File name                         |
-|-----------|---------------------------------------|-----------|-----------|
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-----------------------------------|
 | Bulk d13C and d15N data                     | This file contains all bulk tissue d13C and d15N values to create the biplot in figure 2b                                                                                   | csv       | Bulk_13C_15N_Palmyra.csv          |
 | LDA and Dd13C values for correlation        | This file contains the data required to reproduce figure 4C                                                                                                                 | csv       | LDA_Dd13C_corr_sites.csv          |
 | Confidence interval estimates               | This file contains the data required to reproduce figure 2C                                                                                                                 | csv       | mean_CI_boostrap_for_plotting.csv |
@@ -60,7 +58,7 @@ Metadata from: Trophic plasticity in a common reef-building coral: Insights from
 **We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
 | **First Name** | **Middle Initial** | **Last Name** | **Organization**                     | **Email**      | **ORCID ID**                          |
-|------------|------------|------------|------------|------------|------------|
+|----------------|--------------------|---------------|--------------------------------------|----------------|---------------------------------------|
 | Michael        | D                  | Fox           | Woods Hole Oceanographic Institution | mfox\@whoi.edu | https://orcid.org/0000-0002-5004-1025 |
 | Emma           |                    | Elliott Smith | University of New Mexico             |                | https://orcid.org/0000-0002-3221-0737 |
 | Jennifer       |                    | Smith         | Scripps Institution of Oceanography  |                |                                       |
@@ -73,7 +71,7 @@ Metadata from: Trophic plasticity in a common reef-building coral: Insights from
 **We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
 | First Name | Last Name      | Organization                                              | Email                  | ORCID ID                              | Role in Project  |
-|------------|------------|------------|------------|------------|------------|
+|------------|----------------|-----------------------------------------------------------|------------------------|---------------------------------------|------------------|
 | Michael    | Fox            | Woods Hole Oceanographic Institution                      | mfox\@whoi.edu         | https://orcid.org/0000-0002-5004-1025 | Contact          |
 |            |                |                                                           |                        |                                       |                  |
 | Camila     | Vargas Poulsen | PADL Data Manager, University of California Santa Barbara | camilavargas\@ucsb.edu |                                       | associated party |
@@ -110,7 +108,7 @@ Data user is required to cite it appropriately in any publication that results f
 *List only the main PI of a grant that supported this project, starting with the main grant first. Add rows to the table if several grants were involved.*
 
 | PI First Name | PI Last Name | PI Email | PI ORCID ID | Title of Grant | Funding Agency | Funding ID Number |
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+|---------------|--------------|----------|-------------|----------------|----------------|-------------------|
 |               |              |          |             |                |                |                   |
 |               |              |          |             |                |                |                   |
 |               |              |          |             |                |                |                   |
@@ -169,7 +167,7 @@ Find an example [in this link](https://docs.google.com/document/d/1KdHJObHl5Bxxr
 *Is this data derived from other data? If so, you will want to document this information, so users know where this data came from. Please specify the source datasets used in the below provenance table, preferably with their DOI or URL. [Here is an example of a dataset derived from several others](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.101.3).*
 
 | Dataset Title                                                                                                       | Dataset DOI or URL                      | Creator Name | Contact Email  |
-|---------------------------|---------------|---------------|---------------|
+|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------|--------------|----------------|
 | Data from: Trophic plasticity in a common reef-building coral: Insights from δ13C analysis of essential amino acids | <https://doi.org/10.5061/dryad.tv8v6k3> | Fox, Michael | mfox\@whoi.edu |
 
 ## 13. Data Table
@@ -375,7 +373,7 @@ flextable::flextable(catvar4) %>%
 *List any software scripts/code you would like to archive along with your data. These may include processing scripts you wrote to create, clean, or analyze the data.*
 
 | Filename             | Description                                                                                               | Scripting Language |
-|-----------------|---------------------------------------|-----------------|
+|----------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
 | Fox et al. FE_code.R | This script will open all data files and reproduce the analyses and main text figures for the manuscript. | R                  |
 |                      |                                                                                                           |                    |
 |                      |                                                                                                           |                    |
@@ -385,7 +383,7 @@ flextable::flextable(catvar4) %>%
 *List articles citing this dataset. Add as many rows as necessary*
 
 |                                           |                                                                                                            |                    |
-|------------------|-------------------------------------|------------------|
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------|--------------------|
 | **Article DOI or URL (DOI is preferred)** | Article title                                                                                              | Journal title      |
 | <https://doi.org/10.1111/1365-2435.13441> | Trophic plasticity in a common reef-building coral: Insights from δ^13^C analysis of essential amino acids | Functional Ecology |
 |                                           |                                                                                                            |                    |
